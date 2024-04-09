@@ -1,0 +1,26 @@
+{
+  "name": "restfulexpress",
+  "version": "1.0.0",
+  "description": "Learning RESTful API by express.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/server.js"
+  },
+  "keywords": [
+    "expressjs",
+    "restful",
+    "nodejs"
+  ],
+  "author": "Khoa Nguyen",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "16.0.3",
+    "ejs": "3.1.8",
+    "express": "4.18.2",
+    "mysql2": "^3.9.3"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.20"
+  }
+}
