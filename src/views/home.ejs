@@ -66,8 +66,8 @@
         <td><%= user.name %></td>
         <td><%= user.city %></td>
         <td>
-          <button href="/edit/<%= user.id %>">Edit</button>
-          <button href="/delete/<%= user.id %>">Delete</button>
+          <a href="/update/<%= user.id %>">Edit</a>
+          <a href="/delete/<%= user.id %>">Delete</a>
         </td>
       </tr>
       <% }); %>
