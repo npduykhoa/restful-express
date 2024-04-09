@@ -21,9 +21,9 @@ app.use('/', webRoute)
 //test connection
 
 // A simple SELECT query
-connection.query('SELECT * FROM Users u', function (err, results, fields) {
-  console.log(results) // results contains rows returned by server
-})
+// connection.query('SELECT * FROM Users u', function (err, results, fields) {
+//   console.log(results) // results contains rows returned by server
+// })
 
 app.listen(port, hostname, () => {
   console.log(`Example app listening on port ${port}`)
