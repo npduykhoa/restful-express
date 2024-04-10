@@ -3,7 +3,6 @@ const express = require('express')
 const configViewEngine = require('./config/viewEngine')
 const webRoute = require('./routes/web')
 const connection = require('./config/database')
-const mongoose = require('mongoose')
 
 const app = express()
 const port = process.env.PORT || 8080
@@ -18,14 +17,6 @@ configViewEngine(app)
 
 //config route
 app.use('/', webRoute)
-
-const kittySchema = new mongoose.Schema({
-  name: String
-})
-
-const Kitten = mongoose.model('Kitten', kittySchema)
-const cat = new Kitten({ name: 'Khoa Nguyen cat' })
-cat.save()
 
 //self runnning function
 ;(async () => {

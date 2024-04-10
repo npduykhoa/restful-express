@@ -1,8 +1,9 @@
 const connection = require('../config/database')
 const { getAllUsers, getUserById, updateUserById, deleteUserById } = require('../services/CRUDService')
+const User = require('../models/user') //mongoose model
 
 const getHomepage = async (req, res) => {
-  const results = await getAllUsers()
+  const results = []
   return res.render('home.ejs', { listUsers: results })
 }
 
@@ -13,11 +14,12 @@ const getAboutPage = (req, res) => {
 const postCreateUser = async (req, res) => {
   const { email, name, city } = req.body
 
-  const [results, fields] = await connection.query(`INSERT INTO Users (email, name, city) VALUES (?, ?, ?)`, [
-    email,
-    name,
-    city
-  ])
+  // const [results, fields] = await connection.query(`INSERT INTO Users (email, name, city) VALUES (?, ?, ?)`, [
+  //   email,
+  //   name,
+  //   city
+  // ])
+  await User.create({ email, name, city })
 
   res.send('Create user successfully!')
 }
