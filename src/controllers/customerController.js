@@ -4,7 +4,8 @@ const {
   createArrayCustomerService,
   getCustomersService,
   updateCustomerService,
-  deleteACustomerService
+  deleteACustomerService,
+  deleteManyCustomerService
 } = require('../services/customerService')
 module.exports = {
   postCreateCustomer: async (req, res) => {
@@ -63,6 +64,16 @@ module.exports = {
       return res.status(200).json({ errorCode: 0, data: customer })
     } else {
       return res.status(400).json({ errorCode: -1, data: customer })
+    }
+  },
+
+  deleteManyCustomerAPI: async (req, res) => {
+    const { customerIds } = req.body
+    let result = await deleteManyCustomerService(customerIds)
+    if (result) {
+      return res.status(200).json({ errorCode: 0, data: result })
+    } else {
+      return res.status(400).json({ errorCode: -1, data: result })
     }
   }
 }
