@@ -3,7 +3,8 @@ const {
   createCustomerService,
   createArrayCustomerService,
   getCustomersService,
-  updateCustomerService
+  updateCustomerService,
+  deleteACustomerService
 } = require('../services/customerService')
 module.exports = {
   postCreateCustomer: async (req, res) => {
@@ -48,8 +49,16 @@ module.exports = {
   },
 
   putUpdateCustomersAPI: async (req, res) => {
-    console.log('>>>>>>>>> UPDATE', req.body)
     let customer = await updateCustomerService(req.body)
+    if (customer) {
+      return res.status(200).json({ errorCode: 0, data: customer })
+    } else {
+      return res.status(400).json({ errorCode: -1, data: customer })
+    }
+  },
+
+  deleteACustomerAPI: async (req, res) => {
+    let customer = await deleteACustomerService(req.body)
     if (customer) {
       return res.status(200).json({ errorCode: 0, data: customer })
     } else {
